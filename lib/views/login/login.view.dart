@@ -5,7 +5,7 @@ import 'package:model_app/app/theme/theme.dart';
 import 'package:model_app/app/widgets/button.widget.dart';
 import 'package:model_app/controllers/user.controller.dart';
 import 'package:model_app/main.dart';
-import 'package:model_app/views/login/widgets/input_area_login.dart';
+import 'package:model_app/views/login/widgets/input_area.widget.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
@@ -21,7 +21,7 @@ class _LoginViewState extends State<LoginView> {
     UserController userController = context.read<UserController>();
     final CustomTheme tema = Theme.of(context).extension<CustomTheme>()!;
     return LayoutBuilder(
-      builder: (context, p1) {
+      builder: (context, boxConstraint) {
         return SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
@@ -30,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
                     child: SingleChildScrollView(
                       child: Center(
                         child: SizedBox(
-                          height: p1.maxHeight > 600
+                          height: boxConstraint.maxHeight > 600
                               ? MediaQuery.of(context).size.height
                               : 600,
                           child: Column(
@@ -38,14 +38,14 @@ class _LoginViewState extends State<LoginView> {
                             children: [
                               SizedBox(
                                 width: MediaQuery.of(context).size.width,
-                                height: p1.maxHeight > 600
+                                height: boxConstraint.maxHeight > 600
                                     ? MediaQuery.of(context).size.height * 0.36
                                     : 216,
                                 child: Center(
                                   child: Icon(
                                     Icons.question_mark_rounded,
                                     color: Colors.blue, 
-                                    size: p1.maxHeight > 600
+                                    size: boxConstraint.maxHeight > 600
                                     ? MediaQuery.of(context).size.height * 0.20
                                     : 120),
                                 ),
@@ -53,7 +53,7 @@ class _LoginViewState extends State<LoginView> {
                               SizedBox(
                                 // color: Colors.red,
                                 width: MediaQuery.of(context).size.width,
-                                height: p1.maxHeight > 600
+                                height: boxConstraint.maxHeight > 600
                                     ? MediaQuery.of(context).size.height * 0.64
                                     : 384,
                                 child: Column(

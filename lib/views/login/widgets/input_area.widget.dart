@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:model_app/app/widgets/input_email.widget.dart';
 import 'package:model_app/app/widgets/input_password.widget.dart';
 import 'package:model_app/controllers/user.controller.dart';
@@ -17,9 +18,9 @@ class InputAreaLogin extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.7,
           child: InputEmail(
             text: 'Insira o email',
-            typetxt: TextInputType.emailAddress,
+            inputType: TextInputType.emailAddress,
             icone: const Icon(Icons.mail),
-            inputMail: userController.emailController,
+            emailController: userController.emailController,
           ),
         ),
         const SizedBox(
@@ -48,7 +49,7 @@ class InputAreaLogin extends StatelessWidget {
               ),
               onPressed: () {
                 userController.clearControllers();
-                // context.push('/change-pass');
+                context.push('/change-pass');
               },
               child: const AutoSizeText(
                 "Recuperar senha",
@@ -74,7 +75,7 @@ class InputAreaLogin extends StatelessWidget {
               ),
               onPressed: () {
                 userController.clearControllers();
-                // context.push('/register');
+                context.push('/register');
               },
               child: RichText(
                 text: TextSpan(

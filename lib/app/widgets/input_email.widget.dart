@@ -6,15 +6,15 @@ class InputEmail extends StatefulWidget {
   const InputEmail({
     Key? key,
     required this.text,
-    required this.typetxt,
+    required this.inputType,
     required this.icone,
-    required this.inputMail,
+    required this.emailController,
   }) : super(key: key);
 
   final Icon icone;
   final String text;
-  final TextInputType typetxt;
-  final TextEditingController? inputMail;
+  final TextInputType inputType;
+  final TextEditingController? emailController;
 
   @override
   State<InputEmail> createState() => _InputEmailState();
@@ -25,14 +25,14 @@ class _InputEmailState extends State<InputEmail> {
   Widget build(BuildContext context) {
     final CustomTheme tema = Theme.of(context).extension<CustomTheme>()!;
     return TextFormField(
-      keyboardType: widget.typetxt,
+      keyboardType: widget.inputType,
       decoration: InputDecoration(
         icon: widget.icone,
         labelText: widget.text,
         // labelStyle: tema.styletextfield,
       ),
       style: tema.mainTextBlack,
-      controller: widget.inputMail,
+      controller: widget.emailController,
       validator: (value) => validateEmail(value!),
     );
   }
