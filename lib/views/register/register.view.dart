@@ -22,8 +22,8 @@ class RegisterView extends StatelessWidget {
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
+                userController.clearControllers();
                 context.pop();
-                // userController.clearControllers();
               },
             ),
             backgroundColor: Colors.white,

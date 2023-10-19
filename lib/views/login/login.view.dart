@@ -29,71 +29,65 @@ class _LoginViewState extends State<LoginView> {
                     key: keys.loginKey,
                     child: SingleChildScrollView(
                       child: Center(
-                        child: SizedBox(
-                          height: boxConstraint.maxHeight > 600
-                              ? MediaQuery.of(context).size.height
-                              : 600,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width,
-                                height: boxConstraint.maxHeight > 600
-                                    ? MediaQuery.of(context).size.height * 0.36
-                                    : 216,
-                                child: Center(
-                                  child: Icon(
-                                    Icons.question_mark_rounded,
-                                    color: Colors.blue, 
-                                    size: boxConstraint.maxHeight > 600
-                                    ? MediaQuery.of(context).size.height * 0.20
-                                    : 120),
-                                ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: boxConstraint.maxHeight > 600
+                                  ? MediaQuery.of(context).size.height * 0.36
+                                  : 216,
+                              child: Center(
+                                child: Icon(
+                                  Icons.question_mark_rounded,
+                                  color: Colors.blue, 
+                                  size: boxConstraint.maxHeight > 600
+                                  ? MediaQuery.of(context).size.height * 0.20
+                                  : 120),
                               ),
-                              SizedBox(
-                                // color: Colors.red,
-                                width: MediaQuery.of(context).size.width,
-                                height: boxConstraint.maxHeight > 600
-                                    ? MediaQuery.of(context).size.height * 0.64
-                                    : 384,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Flexible(
-                                      child: AutoSizeText(
-                                        'Login',
-                                        style: tema.mainTextBlack,
-                                        overflow: TextOverflow.clip,
-                                        maxLines: 2,
-                                        softWrap: true,
-                                      ),
+                            ),
+                            SizedBox(
+                              // color: Colors.red,
+                              width: MediaQuery.of(context).size.width,
+                              height: boxConstraint.maxHeight > 600
+                                  ? MediaQuery.of(context).size.height * 0.64
+                                  : 384,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  AutoSizeText(
+                                    'Login',
+                                    style: tema.mainTextBlack,
+                                    overflow: TextOverflow.clip,
+                                    maxLines: 2,
+                                    softWrap: true,
+                                  ),
+                                  const InputAreaLogin(),
+                                    Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                                    child: SizedBox(
+                                    height: 42,
+                                    width:
+                                        MediaQuery.of(context).size.width *
+                                            0.6,
+                                    child: ButtonWidget(
+                                      callback: () {
+                                        if (keys.loginKey.currentState!
+                                            .validate()) {
+                                          context.go('/main');
+                                          userController.clearControllers();
+                                        }
+                                      },
+                                      icon: Icons.login,
+                                      text: "Login",
                                     ),
-                                    const InputAreaLogin(),
-                                    Flexible(
-                                      child: SizedBox(
-                                        height: 42,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.6,
-                                        child: ButtonWidget(
-                                          callback: () {
-                                            if (keys.loginKey.currentState!
-                                                .validate()) {
-                                              context.go('/main');
-                                              userController.clearControllers();
-                                            }
-                                          },
-                                          icon: Icons.login,
-                                          text: "Login",
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
