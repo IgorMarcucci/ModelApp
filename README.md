@@ -1,3 +1,3 @@
 # model_app
 
-A new Flutter project.
+A Flutter Model App.
